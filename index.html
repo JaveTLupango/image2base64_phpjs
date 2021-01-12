@@ -6,55 +6,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
 </head>
 
 <body>
-    <style type="text/css">
-        .a {
-            height: auto;
-            border: 1px solid black;
-        }
-        
-        .b {
-            height: 500px;
-            border: 1px solid black;
-        }
-    </style>
     <div class="container" class="a">
         <center>
             <input type="file" class="btn btn-primary" id="file" onchange="img_base64(this)" name="upload"><br><br>
-
             <textarea rows="10" cols="50" id="base64"></textarea> <br><br>
             <button class="btn btn-primary" onclick="base64_displayImage();">Show Image</button> <br><br>
-
             <div id="Picture" class="a">
                 <img class="b" src="" id="idpic">
             </div>
         </center>
     </div>
 </body>
-<script type="text/javascript">
-    function img_base64(element) {
-        //debugger;
-        var file = element.files[0];
-        var reader = new FileReader();
-        reader.onloadend = function() {
-            console.log('RESULT', reader.result)
-                //$('#stringtypeImage').HTML(reader.result) // = reader.result;
-            document.getElementById('base64').innerText = reader.result;
-        }
-        reader.readAsDataURL(file);
-        document.getElementById('base64').innerText = reader.result;
-    }
-
-    function base64_displayImage() {
-        //debugger;
-        var vals = document.getElementById('base64').value;
-        document.getElementById('idpic').setAttribute("src", vals);
-
-    }
-</script>
 
 </html>
